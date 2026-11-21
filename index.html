@@ -11,8 +11,26 @@
     <canvas id="confetti"></canvas>
     <div id="particles-container"></div>
     
+    <!-- Authentication / Love Gate -->
+    <div id="auth-gate" class="section active">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glass-card auth-card gold-border-subtle">
+            <div class="auth-lock-icon">🔐</div>
+            <h2 class="font-serif gold-text auth-title">A Little Question First... ❤️</h2>
+            <p class="auth-question cream-text font-serif">Who is our love?</p>
+            <form id="auth-form" class="auth-form" onsubmit="return false;">
+                <div class="auth-input-group">
+                    <input type="text" id="auth-input" class="auth-input" placeholder="Type answer here..." autocomplete="off">
+                    <button type="submit" id="auth-submit" class="btn btn-gold auth-btn">Unlock 💖</button>
+                </div>
+                <div id="auth-feedback" class="auth-feedback hidden"></div>
+            </form>
+        </div>
+    </div>
+
     <!-- Landing Page -->
-    <div id="landing-page" class="section active">
+    <div id="landing-page" class="section hidden">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
         <div class="content">

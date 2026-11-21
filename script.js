@@ -77,9 +77,79 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('final-heading').innerText = `Happy Birthday, ${CONFIG.recipientName}!`;
     document.getElementById('final-message').innerText = "May your life always be filled with happiness, wonderful memories, unexpected blessings, and countless reasons to smile.";
 
+    // 2.5 Authentication Gate Logic
+    const authGate = document.getElementById('auth-gate');
+    const authForm = document.getElementById('auth-form');
+    const authInput = document.getElementById('auth-input');
+    const authSubmit = document.getElementById('auth-submit');
+    const authFeedback = document.getElementById('auth-feedback');
+    const landingPage = document.getElementById('landing-page');
+
+    function checkAuth() {
+        if (!authInput) return;
+        const val = authInput.value.trim().toLowerCase();
+        
+        if (val === 'anaya') {
+            authInput.classList.remove('error');
+            authFeedback.className = 'auth-feedback success';
+            authFeedback.innerText = 'Lov u bacha u knw it 🥰❤️';
+            authFeedback.classList.remove('hidden');
+
+            // Burst hearts
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerText = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.bottom = '-30px';
+                    heart.style.fontSize = `${Math.random() * 25 + 20}px`;
+                    heart.style.zIndex = '10001';
+                    heart.style.transition = 'all 2.5s ease-out';
+                    heart.style.pointerEvents = 'none';
+                    document.body.appendChild(heart);
+                    requestAnimationFrame(() => {
+                        heart.style.transform = `translateY(-110vh) rotate(${Math.random() * 360}deg)`;
+                        heart.style.opacity = '0';
+                    });
+                    setTimeout(() => heart.remove(), 2500);
+                }, i * 100);
+            }
+
+            setTimeout(() => {
+                authGate.classList.add('fade-out');
+                setTimeout(() => {
+                    authGate.classList.add('hidden');
+                    landingPage.classList.remove('hidden');
+                    landingPage.classList.add('active');
+                }, 800);
+            }, 1000);
+        } else {
+            authInput.classList.add('error');
+            authFeedback.className = 'auth-feedback error';
+            authFeedback.innerText = 'Really u dont know who is our love 😠';
+            authFeedback.classList.remove('hidden');
+            setTimeout(() => {
+                authInput.classList.remove('error');
+            }, 600);
+        }
+    }
+
+    if (authForm) {
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            checkAuth();
+        });
+    }
+    if (authSubmit) {
+        authSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkAuth();
+        });
+    }
+
     // 3. Landing Page Logic
     const surpriseBtn = document.getElementById('surprise-btn');
-    const landingPage = document.getElementById('landing-page');
     const mainExperience = document.getElementById('main-experience');
 
     surpriseBtn.addEventListener('click', () => {

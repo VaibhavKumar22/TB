@@ -295,6 +295,109 @@ body {
     width: 100%;
     box-shadow: 0 30px 60px rgba(0,0,0,0.3);
 }
+
+/* Auth / Love Gate */
+#auth-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, var(--romantic-red) 0%, var(--burgundy) 100%);
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#auth-gate.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+.auth-card {
+    max-width: 500px;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+.auth-lock-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: pulseLock 2s infinite ease-in-out;
+}
+@keyframes pulseLock {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+.auth-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.auth-question {
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+    color: var(--cream);
+    letter-spacing: 0.5px;
+}
+.auth-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 380px;
+    margin: 0 auto;
+}
+.auth-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 209, 102, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--cream);
+    font-size: 1.15rem;
+    text-align: center;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.auth-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 209, 102, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+}
+.auth-input.error {
+    border-color: #ff4d6d !important;
+    animation: shakeInput 0.4s ease-in-out;
+}
+@keyframes shakeInput {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+.auth-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+}
+.auth-feedback {
+    margin-top: 1.5rem;
+    padding: 0.85rem 1.2rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.auth-feedback.error {
+    background: rgba(193, 18, 31, 0.8);
+    color: #fff;
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    animation: shakeInput 0.4s ease-in-out;
+}
+.auth-feedback.success {
+    background: rgba(40, 167, 69, 0.8);
+    color: #fff;
+    border: 1px solid rgba(255, 209, 102, 0.5);
+    box-shadow: 0 0 20px rgba(255, 209, 102, 0.3);
+}
 .gold-border-subtle {
     border: 1px solid rgba(255, 209, 102, 0.2);
 }
