@@ -18,11 +18,11 @@ const CONFIG = {
         subtitle: "Today is all about celebrating you."
     },
 
-    // Countdown
-    countdown: {
-        // Format: YYYY-MM-DDTHH:MM:SS (Viewer's local time)
-        targetDate: "2026-11-22T00:00:00", 
-        celebrationMessage: "It's Finally Here! Happy Birthday!"
+    // Birthday Wish (Between landing page and letter)
+    wish: {
+        heading: "It's Time to Celebrate! 🎉",
+        message: "It's Finally Here! Happy Birthday Meri Tripu! ✨",
+        hint: "Scroll down to open your special birthday letter 💌"
     },
 
     // Personal Message

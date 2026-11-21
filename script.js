@@ -13,6 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('landing-title').innerText = titleText;
     document.getElementById('landing-subtitle').innerText = CONFIG.landing.subtitle;
     
+    if (CONFIG.wish) {
+        const wishHeading = document.getElementById('wish-heading');
+        const wishMessage = document.getElementById('wish-message');
+        const wishHint = document.getElementById('wish-hint');
+        if (wishHeading) wishHeading.innerText = CONFIG.wish.heading;
+        if (wishMessage) wishMessage.innerText = CONFIG.wish.message;
+        if (wishHint) wishHint.innerText = CONFIG.wish.hint;
+    }
+    
     document.getElementById('message-title').innerText = CONFIG.message.title;
     const letterMessage = document.getElementById('letter-message');
     const signature = document.getElementById('message-signature');
